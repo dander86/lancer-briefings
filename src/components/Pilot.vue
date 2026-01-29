@@ -135,10 +135,15 @@
 <script>
 import 'external-svg-loader'
 import lancerData from '@massif/lancer-data'
-import ktbData from 'lancer-ktb-data'
+import ktbData from '@/assets/LCPs/ktb-data-1.2.3'
 import nrfawData from 'lancer-nrfaw-data'
-import longrimData from 'lancer-longrim-data'
+import longrimData from '@/assets/LCPs/long-rim-data-1.2.1'
 
+import ssmrData from '@/assets/LCPs/ssmr-data-1.7.0'
+import sotwData from '@/assets/LCPs/sotw-data-1.0.2'
+import osrData from '@/assets/LCPs/osr-data-1.2.0'
+import dustgraveData from '@/assets/LCPs/dustgrave-data-1.4.0'
+import owsData from '@/assets/LCPs/ows-data-1.0.0'
 import wallflowerData from '@/assets/LCPs/wallflower-data-2.0.5'
 /*Append the datasets within computed if your LCP has new items.
 EX:
@@ -185,25 +190,25 @@ export default {
       return `/mechs/${this.pilot.callsign.toUpperCase()}.webp`
     },
     pilotGear() {
-      return [...lancerData.pilot_gear]
+      return [...lancerData.pilot_gear, ...dustgraveData.pilot_gear, ...sotwData.pilot_gear, ...ssmrData.pilot_gear]
     },
     mechWeapons() {
-      return [...lancerData.weapons, ...ktbData.weapons, ...nrfawData.weapons, ...longrimData.weapons]
+      return [...lancerData.weapons, ...ktbData.weapons, ...nrfawData.weapons, ...longrimData.weapons, ...owsData.weapons, ...dustgraveData.weapons, ...osrData.weapons, ...ssmrData.weapons]
     },
     mechSystems() {
-      return [...lancerData.systems, ...ktbData.systems, ...nrfawData.systems, ...longrimData.systems]
+      return [...lancerData.systems, ...ktbData.systems, ...nrfawData.systems, ...longrimData.systems, ...owsData.systems, dustgraveData.systems, ...osrData.systems, ...sotwData.systems, ...ssmrData.systems]
     },
     talents() {
-      return [...lancerData.talents, ...ktbData.talents, ...nrfawData.talents, ...longrimData.talents]
+      return [...lancerData.talents, ...ktbData.talents, ...nrfawData.talents, ...longrimData.talents, ...dustgraveData.talents, ...osrData.talents, ...ssmrData.talents]
     },
     skills() {
       return [...lancerData.skills]    
     },
     bonds() {
-      return [...ktbData.bonds]
+      return [...ktbData.bonds, ...sotwData.bonds]
     },
     frames() {
-      return [...lancerData.frames, ...ktbData.frames, ...nrfawData.frames, ...longrimData.frames]
+      return [...lancerData.frames, ...ktbData.frames, ...nrfawData.frames, ...longrimData.frames, ...owsData.frames, ...dustgraveData.frames, ...osrData.frames, ...sotwData.frames, ...ssmrData.frames]
     },
     mechManufacturerIcon() {
       if (this.activeMech.manufacturer)
